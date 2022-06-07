@@ -3,7 +3,7 @@ import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Container, Link, Typography } from '@mui/material';
 
 import axios from 'axios';
 
@@ -43,12 +43,13 @@ function App() {
           <Box sx={{
             my: 4
           }}>
-            <Typography variant='h5'>{r._source.title}</Typography>
+            <Link variant='h5' href={r._source.url}>{r._source.title}</Link>
             {r.highlight.content.map((v, i) => (
-              <Typography key={i}>{v}</Typography>
+              <Typography variant='body' sx={{
+                display: 'block'
+              }} key={i}>{v}</Typography>
             ))}
           </Box>
-
         ))
       )}
     </Container>
